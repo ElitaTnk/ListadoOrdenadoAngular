@@ -1,0 +1,15 @@
+/* Application-wide Styles */
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+  margin: 2em;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #260339;
+  }
+}

@@ -1,0 +1,18 @@
+
+<h2 class="section-people__title">Para ordernar clickee el boton correspondiente</h2>
+
+<mat-button-toggle-group [(value)] = "selectedValue">
+  <mat-button-toggle color="primary" (change)="selectionChanged($event)" value="id">Ordenar Por ID</mat-button-toggle>
+  <mat-button-toggle (change)="selectionChanged($event)" value="nombre">Ordenar Por Nombre</mat-button-toggle>
+  <mat-button-toggle (change)="selectionChanged($event)" value="apellido">Ordenar Por Apellido</mat-button-toggle>
+</mat-button-toggle-group>
+
+<ul class="section-people__personas">
+  <li *ngFor="let persona of personas"
+    [class.selected]="persona === selectedPersona"
+    (click)="onSelect(persona)">
+    <span class="section-people__personas__badge">{{persona.id}}</span> {{persona.nombre}} {{persona.apellido}}
+  </li>
+</ul>
+
+<app-persona-detalle [persona]="selectedPersona"></app-persona-detalle>
