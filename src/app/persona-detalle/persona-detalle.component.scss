@@ -1,5 +1,7 @@
 .mat-card {
-  max-width: 33%;
+  max-width: 65%;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .mat-card-content {
@@ -10,7 +12,7 @@
   li {
     margin-bottom: .8rem;
   }
-  
+
   span {
     font-weight: bold;
   }
