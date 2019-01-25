@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
-import { PERSONAS } from '../mock-personas';
+import { PersonaService } from '../persona.service';
 
 @Component({
   selector: 'app-personas',
   templateUrl: './personas.component.html',
   styleUrls: ['./personas.component.scss']
 })
+
 export class PersonasComponent implements OnInit {
-  personas = PERSONAS;
+  listaPersonas: Persona[];
   selectedPersona: Persona;
 
   selectedValue: string = 'id';
 
-  constructor() { }
+  constructor(private personaService: PersonaService) { }
 
   ngOnInit() {
+    this.getPersonas();
+  }
+
+  getPersonas(): void {
+    this.personaService.getPersonas()
+      .subscribe((personas: Persona[]) => {console.log(personas); this.listaPersonas = personas});
   }
 
   selectionChanged(item) {
@@ -28,7 +35,7 @@ export class PersonasComponent implements OnInit {
   }
 
   ordenarPersonas(sortingProperty = "id") {
-    return this.personas.sort((obj1, obj2) => {
+    return this.listaPersonas.sort((obj1, obj2) => {
       const valueA = obj1[sortingProperty];
       const valueB = obj2[sortingProperty];
 

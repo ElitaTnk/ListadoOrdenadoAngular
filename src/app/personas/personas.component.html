@@ -9,7 +9,7 @@
 
 <div class="section-people__container">
   <ul class="section-people__personas">
-    <li *ngFor="let persona of personas"
+    <li *ngFor="let persona of listaPersonas"
       [class.selected]="persona === selectedPersona"
       (click)="onSelect(persona)">
       <span class="section-people__personas__badge">{{persona.id}}</span> {{persona.nombre}} {{persona.apellido}}
